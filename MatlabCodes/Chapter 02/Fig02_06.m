@@ -27,7 +27,7 @@ mu = 1/(m*dt)*(X(end)-X(1))
 
 s = 0;
 for i=1:length(X)-1
-    s = (X(i+1)-X(i)-mu*dt)^2;
+    s = s + (X(i+1)-X(i)-mu*dt)^2;
 end
 sigma = sqrt(s/(m*dt))
 

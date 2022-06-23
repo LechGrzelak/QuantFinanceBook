@@ -30,7 +30,7 @@ def MLE(dateS,S):
 
     s = 0;
     for i in range(0,len(X)-1):
-        s = np.power(X[i+1]-X[i]-mu*dt,2)
+        s = s + np.power(X[i+1]-X[i]-mu*dt,2)
     sigma = np.sqrt(s/(m*dt))
     print('Estimated parameters are: mu = {0} and sigma = {1}'.format(mu,sigma))
     

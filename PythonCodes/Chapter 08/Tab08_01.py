@@ -12,7 +12,7 @@ import scipy.optimize as optimize
 
 # Set i= imaginary number
 
-i   = np.complex(0.0,1.0)
+i   = np.complex128(0.0 + 1.0j)
 
 # This class defines puts and calls
 
@@ -39,7 +39,7 @@ def CallPutOptionPriceCOSMthd(cf,CP,S0,r,tau,K,N,L):
     
     # Assigning i=sqrt(-1)
 
-    i = np.complex(0.0,1.0) 
+    i = np.complex128(0.0 + 1.0j) 
     x0 = np.log(S0 / K)   
     
     # Truncation domain
@@ -142,7 +142,7 @@ def ImpliedVolatility(CP,marketPrice,K,T,S_0,r):
     return impliedVol
 
 def ChFHestonModel(r,tau,kappa,gamma,vbar,v0,rho):
-    i = np.complex(0.0,1.0)
+    i = np.complex128(0.0 + 1.0j)
     D1 = lambda u: np.sqrt(np.power(kappa-gamma*rho*i*u,2)+(u*u+i*u)*gamma*gamma)
     g  = lambda u: (kappa-gamma*rho*i*u-D1(u))/(kappa-gamma*rho*i*u+D1(u))
     C  = lambda u: (1.0-np.exp(-D1(u)*tau))/(gamma*gamma*(1.0-g(u)*np.exp(-D1(u)*tau)))*(kappa-gamma*rho*i*u-D1(u))
